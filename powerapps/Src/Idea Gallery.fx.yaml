@@ -1,0 +1,807 @@
+"'Idea Gallery' As screen":
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =Max(App.Height, App.DesignHeight)
+    Orientation: =If('Idea Gallery'.Width < 'Idea Gallery'.Height, Layout.Vertical, Layout.Horizontal)
+    Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= 'Idea Gallery'.Width)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Gallery5 As gallery.galleryVertical:
+        '#CopilotOverlayLabel': ="Filtered"
+        DisabledBorderColor: =Gallery5.BorderColor
+        DisabledFill: =Gallery5.Fill
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        Height: =628
+        HoverBorderColor: =Gallery5.BorderColor
+        HoverFill: =Gallery5.Fill
+        Items: =Sort(Filter(Ideas,Status <> "None" ), SubmitDate,SortOrder.Descending )
+        Layout: =Layout.Vertical
+        PressedBorderColor: =Gallery5.BorderColor
+        PressedFill: =Gallery5.Fill
+        TemplateSize: =369.57142857142855
+        Width: =1376
+        X: =-5
+        Y: =140
+        ZIndex: =1
+
+        Label3_14 As label:
+            Align: =TextPosition.Left
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(117, 119, 130, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Label3_14.BorderColor
+            Font: ="Segoe UI"
+            FontWeight: =FontWeight.Semibold
+            HoverBorderColor: =Label3_14.BorderColor
+            HoverColor: =Label3_14.Color
+            HoverFill: =Label3_14.Fill
+            maximumHeight: =768
+            PressedBorderColor: =Label3_14.BorderColor
+            PressedColor: =Label3_14.Color
+            PressedFill: =Label3_14.Fill
+            Size: =20
+            Text: =LookUp(Users, ID = ThisItem.'Owner ID', Name)
+            Width: =716
+            X: =184
+            Y: =36
+            ZIndex: =1
+
+        Label5_7 As label:
+            Align: =Align.Justify
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(117, 119, 130, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Label5_7.BorderColor
+            Font: ="Segoe UI"
+            FontWeight: =FontWeight.Lighter
+            Height: =159
+            HoverBorderColor: =Label5_7.BorderColor
+            HoverColor: =Label5_7.Color
+            HoverFill: =Label5_7.Fill
+            maximumHeight: =768
+            Overflow: =LayoutOverflow.Scroll
+            PressedBorderColor: =Label5_7.BorderColor
+            PressedColor: =Label5_7.Color
+            PressedFill: =Label5_7.Fill
+            Size: =18
+            Text: =ThisItem.Description
+            VerticalAlign: =VerticalAlign.Top
+            Width: =716
+            X: =184
+            Y: =168
+            ZIndex: =2
+
+        Image4_1 As image:
+            ApplyEXIFOrientation: =false
+            AutoDisableOnSelect: =false
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =RGBA(119, 119, 119, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Image4_1.BorderColor
+            HoverBorderColor: =ColorFade(Image4_1.BorderColor, 20%)
+            HoverFill: =ColorFade(Image4_1.Fill, 20%)
+            Image: =If(ThisItem.'Owner ID' = 1, susanacarvalho, ThisItem.'Owner ID' = 2,user1, ThisItem.'Owner ID' = 3,user3, ThisItem.'Owner ID' = 4,raquelvieira)
+            ImagePosition: =ImagePosition.Fill
+            PressedBorderColor: =ColorFade(Image4_1.BorderColor, -20%)
+            PressedFill: =ColorFade(Image4_1.Fill, -20%)
+            X: =61
+            Y: =36
+            ZIndex: =3
+
+        Label5_14 As label:
+            Align: =TextPosition.Left
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(117, 119, 130, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Label5_14.BorderColor
+            Font: ="Segoe UI"
+            FontWeight: =FontWeight.Semibold
+            Height: =44
+            HoverBorderColor: =Label5_14.BorderColor
+            HoverColor: =Label5_14.Color
+            HoverFill: =Label5_14.Fill
+            maximumHeight: =768
+            PressedBorderColor: =Label5_14.BorderColor
+            PressedColor: =Label5_14.Color
+            PressedFill: =Label5_14.Fill
+            Size: =18
+            Text: =ThisItem.Title
+            Width: =716
+            X: =184
+            Y: =76
+            ZIndex: =4
+
+        Circle1_1 As circle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Circle1_1.Fill
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            Fill: =RGBA(235, 235, 235, 1)
+            FocusedBorderColor: =Circle1_1.BorderColor
+            Height: =69
+            HoverFill: =Circle1_1.Fill
+            PressedFill: =Circle1_1.Fill
+            TabIndex: =0
+            Width: =66.910112359551
+            X: =977.9999999999993
+            Y: =36
+            ZIndex: =5
+
+        Image6_1 As image:
+            ApplyEXIFOrientation: =false
+            AutoDisableOnSelect: =false
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =RGBA(119, 119, 119, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Image6_1.BorderColor
+            Height: =32
+            HoverBorderColor: =ColorFade(Image6_1.BorderColor, 20%)
+            HoverFill: =ColorFade(Image6_1.Fill, 20%)
+            Image: =If(ThisItem.Status = "Approved", approved,ThisItem.Status = "Implemented", implemented,ThisItem.Status = "Accepted", accepted)
+            ImagePosition: =LayoutAlignItems.Stretch
+            PressedBorderColor: =ColorFade(Image6_1.BorderColor, -20%)
+            PressedFill: =ColorFade(Image6_1.Fill, -20%)
+            Width: =30.926966292135
+            X: =995.9999999999993
+            Y: =55
+            ZIndex: =6
+
+        Label4_6 As label:
+            Align: =TextPosition.Left
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(117, 119, 130, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Label4_6.BorderColor
+            Font: ="Segoe UI"
+            FontWeight: =FontWeight.Lighter
+            HoverBorderColor: =Label4_6.BorderColor
+            HoverColor: =Label4_6.Color
+            HoverFill: =Label4_6.Fill
+            maximumHeight: =768
+            PressedBorderColor: =Label4_6.BorderColor
+            PressedColor: =Label4_6.Color
+            PressedFill: =Label4_6.Fill
+            Size: =18
+            Text: =If(ThisItem.Status <> "None",ThisItem.Status, "No Status")
+            Width: =166
+            X: =1085.9999999999993
+            Y: =51
+            ZIndex: =7
+
+        Label2_5 As label:
+            Align: =LayoutAlignItems.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(117, 119, 130, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Label2_5.BorderColor
+            Font: ="Segoe UI"
+            FontWeight: =FontWeight.Bold
+            Height: =54.28571428571422
+            HoverBorderColor: =Label2_5.BorderColor
+            HoverColor: =Label2_5.Color
+            HoverFill: =Label2_5.Fill
+            maximumHeight: =768
+            PressedBorderColor: =Label2_5.BorderColor
+            PressedColor: =Label2_5.Color
+            PressedFill: =Label2_5.Fill
+            Size: =24
+            Text: =ThisItem.Likes
+            Width: =95
+            X: =964
+            Y: =136
+            ZIndex: =8
+
+        Label4_7 As label:
+            Align: =TextPosition.Left
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(117, 119, 130, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Label4_7.BorderColor
+            Font: ="Segoe UI"
+            FontWeight: =FontWeight.Lighter
+            HoverBorderColor: =Label4_7.BorderColor
+            HoverColor: =Label4_7.Color
+            HoverFill: =Label4_7.Fill
+            maximumHeight: =768
+            PressedBorderColor: =Label4_7.BorderColor
+            PressedColor: =Label4_7.Color
+            PressedFill: =Label4_7.Fill
+            Size: =18
+            Text: ="Likes"
+            Width: =157
+            X: =1085.9999999999993
+            Y: =150
+            ZIndex: =9
+
+        Label2_6 As label:
+            Align: =LayoutAlignItems.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(117, 119, 130, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Label2_6.BorderColor
+            Font: ="Segoe UI"
+            FontWeight: =FontWeight.Bold
+            Height: =54
+            HoverBorderColor: =Label2_6.BorderColor
+            HoverColor: =Label2_6.Color
+            HoverFill: =Label2_6.Fill
+            maximumHeight: =768
+            PressedBorderColor: =Label2_6.BorderColor
+            PressedColor: =Label2_6.Color
+            PressedFill: =Label2_6.Fill
+            Size: =24
+            Text: =CountRows(Filter(Comments, Idea = ThisItem.ID))
+            Width: =95
+            X: =964
+            Y: =242
+            ZIndex: =10
+
+        Label4_8 As label:
+            Align: =TextPosition.Left
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(117, 119, 130, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Label4_8.BorderColor
+            Font: ="Segoe UI"
+            FontWeight: =FontWeight.Lighter
+            HoverBorderColor: =Label4_8.BorderColor
+            HoverColor: =Label4_8.Color
+            HoverFill: =Label4_8.Fill
+            maximumHeight: =768
+            PressedBorderColor: =Label4_8.BorderColor
+            PressedColor: =Label4_8.Color
+            PressedFill: =Label4_8.Fill
+            Size: =18
+            Text: ="Comments"
+            Width: =157
+            X: =1085.9999999999993
+            Y: =249
+            ZIndex: =11
+
+        Rectangle3_3 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle3_3.Fill
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            Fill: =RGBA(235, 235, 235, 1)
+            FocusedBorderColor: =Rectangle3_3.BorderColor
+            Height: =1
+            HoverFill: =Rectangle3_3.Fill
+            PressedFill: =Rectangle3_3.Fill
+            TabIndex: =0
+            Width: =400
+            X: =463
+            Y: =355
+            ZIndex: =12
+
+        Label3_32 As label:
+            Align: =TextPosition.Left
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(117, 119, 130, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Label3_32.BorderColor
+            Font: ="Segoe UI"
+            Height: =25
+            HoverBorderColor: =Label3_32.BorderColor
+            HoverColor: =Label3_32.Color
+            HoverFill: =Label3_32.Fill
+            maximumHeight: =768
+            PressedBorderColor: =Label3_32.BorderColor
+            PressedColor: =Label3_32.Color
+            PressedFill: =Label3_32.Fill
+            Size: =14
+            Text: =Text(ThisItem.SubmitDate,DateTimeFormat.LongDateTime)
+            Width: =358
+            X: =184
+            Y: =140
+            ZIndex: =13
+
+        Label3_33 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(117, 119, 130, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Label3_33.BorderColor
+            Font: ="Segoe UI"
+            FontWeight: =FontWeight.Semibold
+            Height: =20.8571428571428
+            HoverBorderColor: =Label3_33.BorderColor
+            HoverColor: =Label3_33.Color
+            HoverFill: =Label3_33.Fill
+            maximumHeight: =768
+            PressedBorderColor: =Label3_33.BorderColor
+            PressedColor: =Label3_33.Color
+            PressedFill: =Label3_33.Fill
+            Size: =14
+            Text: =ThisItem.Likes
+            Width: =52
+            X: =567
+            Y: =144
+            ZIndex: =14
+
+        Label3_34 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(117, 119, 130, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Label3_34.BorderColor
+            Font: ="Segoe UI"
+            FontWeight: =FontWeight.Semibold
+            Height: =20.8571428571428
+            HoverBorderColor: =Label3_34.BorderColor
+            HoverColor: =Label3_34.Color
+            HoverFill: =Label3_34.Fill
+            maximumHeight: =768
+            PressedBorderColor: =Label3_34.BorderColor
+            PressedColor: =Label3_34.Color
+            PressedFill: =Label3_34.Fill
+            Size: =14
+            Text: ="People"
+            Width: =81
+            X: =619
+            Y: =144
+            ZIndex: =15
+
+        Label3_35 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(117, 119, 130, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Label3_35.BorderColor
+            Font: ="Segoe UI"
+            FontWeight: =FontWeight.Lighter
+            Height: =20.8571428571428
+            HoverBorderColor: =Label3_35.BorderColor
+            HoverColor: =Label3_35.Color
+            HoverFill: =Label3_35.Fill
+            maximumHeight: =768
+            PressedBorderColor: =Label3_35.BorderColor
+            PressedColor: =Label3_35.Color
+            PressedFill: =Label3_35.Fill
+            Size: =14
+            Text: ="Like this"
+            Width: =92
+            X: =687.142857142857
+            Y: =144
+            ZIndex: =16
+
+        Label9_2 As label:
+            Align: =LayoutAlignItems.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            Fill: =RGBA(247, 172, 56, 1)
+            FocusedBorderColor: =Label9_2.BorderColor
+            Font: ="Segoe UI"
+            Height: =34
+            HoverBorderColor: =Label9_2.BorderColor
+            HoverColor: =Label9_2.Color
+            HoverFill: =Label9_2.Fill
+            maximumHeight: =768
+            PressedBorderColor: =Label9_2.BorderColor
+            PressedColor: =Label9_2.Color
+            PressedFill: =Label9_2.Fill
+            Size: =16
+            Text: =ThisItem.Title
+            Visible: =If(ThisItem.Status="None",true, false)
+            Width: =85
+            X: =851
+            Y: =36
+            ZIndex: =17
+
+        IdeaDetailBtn As button:
+            AutoDisableOnSelect: =false
+            BorderColor: =ColorFade(IdeaDetailBtn.Fill, -15%)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisabledFill: =RGBA(119, 119, 119, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderColor: =IdeaDetailBtn.BorderColor
+            Font: ="Segoe UI"
+            Height: =369.571428571429
+            HoverBorderColor: =ColorFade(IdeaDetailBtn.BorderColor, 20%)
+            HoverColor: =IdeaDetailBtn.Color
+            HoverFill: =ColorFade(IdeaDetailBtn.Fill, 30%)
+            OnSelect: |-
+                =ClearCollect(TempIdea,ThisItem.ID);
+                Navigate(Idea, ScreenTransition.Fade, ThisItem)
+            PressedBorderColor: =ColorFade(IdeaDetailBtn.BorderColor, -20%)
+            PressedColor: =IdeaDetailBtn.Color
+            PressedFill: =ColorFade(IdeaDetailBtn.Fill, -30%)
+            Size: =11
+            Text: ="Button"
+            Width: =1366
+            ZIndex: =18
+
+    Rectangle1_8 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle1_8.Fill
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        Fill: =RGBA(205, 212, 130, 1)
+        FocusedBorderColor: =Rectangle1_8.BorderColor
+        Height: =80
+        HoverFill: =Rectangle1_8.Fill
+        PressedFill: =Rectangle1_8.Fill
+        TabIndex: =0
+        Width: =1366
+        ZIndex: =2
+
+    Label5_3 As label:
+        Align: =LayoutAlignItems.Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(186, 186, 186, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        FocusedBorderColor: =Label5_3.BorderColor
+        Font: ="Segoe UI"
+        FontWeight: =FontWeight.Lighter
+        Height: =80
+        HoverBorderColor: =Label5_3.BorderColor
+        HoverColor: =Label5_3.Color
+        HoverFill: =Label5_3.Fill
+        maximumHeight: =768
+        PressedBorderColor: =Label5_3.BorderColor
+        PressedColor: =Label5_3.Color
+        PressedFill: =Label5_3.Fill
+        Size: =20
+        Text: ="Ideation"
+        Width: =315
+        X: =484
+        ZIndex: =3
+
+    Rectangle2_9 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle2_9.Fill
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        Fill: =RGBA(230, 230, 230, 1)
+        FocusedBorderColor: =Rectangle2_9.BorderColor
+        Height: =60
+        HoverFill: =Rectangle2_9.Fill
+        PressedFill: =Rectangle2_9.Fill
+        TabIndex: =0
+        Width: =1366
+        Y: =80
+        ZIndex: =4
+
+    Label5_13 As label:
+        Align: =TextPosition.Left
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(117, 119, 130, 1)
+        DisabledColor: =RGBA(186, 186, 186, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        FocusedBorderColor: =Label5_13.BorderColor
+        Font: ="Segoe UI"
+        Height: =56
+        HoverBorderColor: =Label5_13.BorderColor
+        HoverColor: =Label5_13.Color
+        HoverFill: =Label5_13.Fill
+        maximumHeight: =768
+        PressedBorderColor: =Label5_13.BorderColor
+        PressedColor: =Label5_13.Color
+        PressedFill: =Label5_13.Fill
+        Size: =18
+        Text: ="Ideas"
+        Width: =555
+        X: =128
+        Y: =80
+        ZIndex: =5
+
+    Arrow1_4 As arrow.backArrow:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        Fill: =RGBA(117, 119, 130, 1)
+        FocusedBorderColor: =Arrow1_4.BorderColor
+        Height: =39
+        HoverBorderColor: =ColorFade(Arrow1_4.BorderColor, 20%)
+        HoverFill: =ColorFade(Arrow1_4.Fill, 15%)
+        OnSelect: =Navigate(Dashboard, ScreenTransition.Fade)
+        PressedBorderColor: =ColorFade(Arrow1_4.BorderColor, -20%)
+        PressedFill: =ColorFade(Arrow1_4.Fill, -15%)
+        TabIndex: =0
+        Width: =40
+        X: =60
+        Y: =91
+        ZIndex: =6
+
+    Image5_17 As image:
+        ApplyEXIFOrientation: =false
+        AutoDisableOnSelect: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+        DisabledFill: =RGBA(119, 119, 119, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        FocusedBorderColor: =Image5_17.BorderColor
+        Height: =62
+        HoverBorderColor: =ColorFade(Image5_17.BorderColor, 20%)
+        HoverFill: =ColorFade(Image5_17.Fill, 20%)
+        Image: |-
+            =If(
+                First(UserLoged.ID).ID = 1, susanacarvalho, 
+                First(UserLoged.ID).ID = 2,user1, 
+                First(UserLoged.ID).ID = 3,user3, 
+                First(UserLoged.ID).ID = 4,raquelvieira)
+        ImagePosition: =ImagePosition.Fill
+        OnSelect: =Navigate(Profile, ScreenTransition.Fade)
+        PressedBorderColor: =ColorFade(Image5_17.BorderColor, -20%)
+        PressedFill: =ColorFade(Image5_17.Fill, -20%)
+        Width: =62
+        X: =963
+        Y: =11
+        ZIndex: =7
+
+    Label1_22 As label:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(186, 186, 186, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        Fill: =RGBA(0,0, 0,0)
+        FocusedBorderColor: =Label1_22.BorderColor
+        Font: ="Segoe UI"
+        HoverBorderColor: =Label1_22.BorderColor
+        HoverColor: =Label1_22.Color
+        HoverFill: =Label1_22.Fill
+        maximumHeight: =768
+        PressedBorderColor: =Label1_22.BorderColor
+        PressedColor: =Label1_22.Color
+        PressedFill: =Label1_22.Fill
+        Size: =18
+        Text: =First(UserLoged).Name
+        Width: =319
+        X: =1047
+        Y: =22
+        ZIndex: =8
+
+    Notification1_3 As image:
+        ApplyEXIFOrientation: =false
+        AutoDisableOnSelect: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+        DisabledFill: =RGBA(119, 119, 119, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        FocusedBorderColor: =Notification1_3.BorderColor
+        Height: =44
+        HoverBorderColor: =ColorFade(Notification1_3.BorderColor, 20%)
+        HoverFill: =ColorFade(Notification1_3.Fill, 20%)
+        Image: =notifications
+        ImagePosition: =LayoutAlignItems.Stretch
+        OnSelect: =Navigate('Notifications Center', ScreenTransition.Fade)
+        PressedBorderColor: =ColorFade(Notification1_3.BorderColor, -20%)
+        PressedFill: =ColorFade(Notification1_3.Fill, -20%)
+        Visible: =If(First(UserLoged.Group).Group="Administrator",true,false)
+        Width: =39
+        X: =199
+        Y: =22.2222222222222
+        ZIndex: =9
+
+    Circle2_6 As circle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Circle2_6.Fill
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        Fill: =RGBA(247, 172, 56, 1)
+        FocusedBorderColor: =Circle2_6.BorderColor
+        Height: =34.3333333333301
+        HoverFill: =Circle2_6.Fill
+        PressedFill: =Circle2_6.Fill
+        TabIndex: =0
+        Visible: =If(First(UserLoged.Group).Group="Administrator",true,false)
+        Width: =34.3333333333301
+        X: =225.333333333337
+        Y: =13
+        ZIndex: =10
+
+    Notification2_3 As label:
+        Align: =Align.Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(186, 186, 186, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        FocusedBorderColor: =Notification2_3.BorderColor
+        Font: ="Segoe UI"
+        FontWeight: =FontWeight.Bold
+        Height: =30
+        HoverBorderColor: =Notification2_3.BorderColor
+        HoverColor: =Notification2_3.Color
+        HoverFill: =Notification2_3.Fill
+        maximumHeight: =768
+        PressedBorderColor: =Notification2_3.BorderColor
+        PressedColor: =Notification2_3.Color
+        PressedFill: =Notification2_3.Fill
+        Size: =10
+        Text: =CountIf(Ideas, Value(ID) > 0 && IsNew = 1)
+        Visible: =If(First(UserLoged.Group).Group="Administrator",true,false)
+        Width: =37
+        X: =224
+        Y: =15
+        ZIndex: =11
+
+    Image11_7 As image:
+        ApplyEXIFOrientation: =false
+        AutoDisableOnSelect: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+        DisabledFill: =RGBA(119, 119, 119, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        FocusedBorderColor: =Image11_7.BorderColor
+        Height: =53
+        HoverBorderColor: =ColorFade(Image11_7.BorderColor, 20%)
+        HoverFill: =ColorFade(Image11_7.Fill, 20%)
+        Image: =idea_white
+        ImagePosition: =LayoutAlignItems.Stretch
+        OnSelect: =Navigate('Idea Gallery',ScreenTransition.Fade)
+        PressedBorderColor: =ColorFade(Image11_7.BorderColor, -20%)
+        PressedFill: =ColorFade(Image11_7.Fill, -20%)
+        Width: =37
+        X: =131
+        Y: =13
+        ZIndex: =12
+
+    Image13_3 As image:
+        ApplyEXIFOrientation: =false
+        AutoDisableOnSelect: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+        DisabledFill: =RGBA(119, 119, 119, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        FocusedBorderColor: =Image13_3.BorderColor
+        Height: =56
+        HoverBorderColor: =ColorFade(Image13_3.BorderColor, 20%)
+        HoverFill: =ColorFade(Image13_3.Fill, 20%)
+        Image: =userprofile
+        OnSelect: =Navigate('Users Management',ScreenTransition.Fade)
+        PressedBorderColor: =ColorFade(Image13_3.BorderColor, -20%)
+        PressedFill: =ColorFade(Image13_3.Fill, -20%)
+        Visible: =If(First(UserLoged.Group).Group="Administrator",true,false)
+        Width: =51.142857142857
+        X: =282
+        Y: =16
+        ZIndex: =13
+
+    Image1_3 As image:
+        ApplyEXIFOrientation: =false
+        AutoDisableOnSelect: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+        DisabledFill: =RGBA(119, 119, 119, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        FocusedBorderColor: =Image1_3.BorderColor
+        Height: =43
+        HoverBorderColor: =ColorFade(Image1_3.BorderColor, 20%)
+        HoverFill: =ColorFade(Image1_3.Fill, 20%)
+        Image: =logout
+        OnSelect: |-
+            =Clear(UserLoged);
+            Navigate(Login, ScreenTransition.Fade)
+        PressedBorderColor: =ColorFade(Image1_3.BorderColor, -20%)
+        PressedFill: =ColorFade(Image1_3.Fill, -20%)
+        Width: =53
+        X: =1289
+        Y: =21
+        ZIndex: =14
+
+    Group5_2 As group:
+        Height: =5
+        Width: =5
+        X: =40
+        Y: =20
+        ZIndex: =21
+
+        Rectangle1_13 As rectangle:
+            BorderColor: =RGBA(0, 0, 255, 1)
+            DisabledFill: =Rectangle1_13.Fill
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            Fill: =RGBA(221, 79, 14, 1)
+            FocusedBorderColor: =Rectangle1_13.BorderColor
+            Height: =80
+            HoverFill: =Rectangle1_13.Fill
+            PressedFill: =Rectangle1_13.Fill
+            TabIndex: =0
+            Width: =1366
+            ZIndex: =15
+
+        Label5_30 As label:
+            Align: =LayoutAlignItems.Center
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Label5_30.BorderColor
+            Font: ="Segoe UI"
+            Height: =80
+            HoverBorderColor: =Label5_30.BorderColor
+            HoverColor: =Label5_30.Color
+            HoverFill: =Label5_30.Fill
+            maximumHeight: =768
+            PressedBorderColor: =Label5_30.BorderColor
+            PressedColor: =Label5_30.Color
+            PressedFill: =Label5_30.Fill
+            Size: =26
+            Text: ="Ideation"
+            Width: =315
+            X: =484
+            ZIndex: =16
+
+        Label1_27 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            Color: =RGBA(255, 255, 255, 1)
+            DisabledColor: =RGBA(186, 186, 186, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            Fill: =RGBA(0,0, 0,0)
+            FocusedBorderColor: =Label1_27.BorderColor
+            Font: ="Segoe UI"
+            HoverBorderColor: =Label1_27.BorderColor
+            HoverColor: =Label1_27.Color
+            HoverFill: =Label1_27.Fill
+            maximumHeight: =768
+            PressedBorderColor: =Label1_27.BorderColor
+            PressedColor: =Label1_27.Color
+            PressedFill: =Label1_27.Fill
+            Size: =18
+            Text: =First(UserLoged.Name).Name
+            Width: =319
+            X: =1047
+            Y: =10
+            ZIndex: =17
+
+        Image11_15 As image:
+            ApplyEXIFOrientation: =false
+            AutoDisableOnSelect: =false
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =RGBA(119, 119, 119, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Image11_15.BorderColor
+            Height: =53
+            HoverBorderColor: =ColorFade(Image11_15.BorderColor, 20%)
+            HoverFill: =ColorFade(Image11_15.Fill, 20%)
+            Image: =idea_white
+            ImagePosition: =LayoutAlignItems.Stretch
+            OnSelect: =Navigate('Idea Gallery',ScreenTransition.Fade)
+            PressedBorderColor: =ColorFade(Image11_15.BorderColor, -20%)
+            PressedFill: =ColorFade(Image11_15.Fill, -20%)
+            Width: =37
+            X: =170
+            Y: =1
+            ZIndex: =18
+
+        Image2_3 As image:
+            Height: =80
+            Image: ='AgreeYa-Logo'
+            Width: =199
+            ZIndex: =19
+
+        Image1_9 As image:
+            ApplyEXIFOrientation: =false
+            AutoDisableOnSelect: =false
+            BorderColor: =RGBA(0, 0, 0, 1)
+            DisabledBorderColor: =RGBA(56, 56, 56, 1)
+            DisabledFill: =RGBA(119, 119, 119, 1)
+            DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+            FocusedBorderColor: =Image1_9.BorderColor
+            Height: =43
+            HoverBorderColor: =ColorFade(Image1_9.BorderColor, 20%)
+            HoverFill: =ColorFade(Image1_9.Fill, 20%)
+            Image: =logout
+            OnSelect: |-
+                =Clear(UserLoged); 
+                Navigate(Login, ScreenTransition.Fade)
+            PressedBorderColor: =ColorFade(Image1_9.BorderColor, -20%)
+            PressedFill: =ColorFade(Image1_9.Fill, -20%)
+            Width: =53
+            X: =1296
+            Y: =12
+            ZIndex: =20
+

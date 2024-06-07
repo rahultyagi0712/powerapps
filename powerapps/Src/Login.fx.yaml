@@ -1,0 +1,198 @@
+Login As screen:
+    Fill: =RGBA(205, 212, 130, 1)
+    Height: =Max(App.Height, App.DesignHeight)
+    OnHidden: =Rectangle1.DisplayMode
+    OnVisible: =
+    Orientation: =If(Login.Width < Login.Height, Layout.Vertical, Layout.Horizontal)
+    Size: =1 + CountRows(App.SizeBreakpoints) - CountIf(App.SizeBreakpoints, Value >= Login.Width)
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Image7 As image:
+        ApplyEXIFOrientation: =false
+        AutoDisableOnSelect: =false
+        BorderColor: =RGBA(0, 0, 0, 1)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+        DisabledFill: =RGBA(119, 119, 119, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        FocusedBorderColor: =Image7.BorderColor
+        Height: =768
+        HoverBorderColor: =ColorFade(Image7.BorderColor, 20%)
+        HoverFill: =ColorFade(Image7.Fill, 20%)
+        Image: =background
+        PressedBorderColor: =ColorFade(Image7.BorderColor, -20%)
+        PressedFill: =ColorFade(Image7.Fill, -20%)
+        Width: =849
+        ZIndex: =1
+
+    Rectangle1 As rectangle:
+        BorderColor: =RGBA(0, 0, 255, 1)
+        DisabledFill: =Rectangle1.Fill
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderColor: =Rectangle1.BorderColor
+        Height: =768
+        PressedFill: =Rectangle1.Fill
+        TabIndex: =0
+        Width: =517
+        X: =849
+        ZIndex: =2
+
+    Label5_27 As label:
+        Align: =LayoutAlignItems.Center
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(186, 186, 186, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        FocusedBorderColor: =Label5_27.BorderColor
+        Font: ="Segoe UI"
+        FontWeight: =FontWeight.Lighter
+        Height: =101
+        HoverBorderColor: =Label5_27.BorderColor
+        HoverColor: =Label5_27.Color
+        HoverFill: =Label5_27.Fill
+        maximumHeight: =768
+        PressedBorderColor: =Label5_27.BorderColor
+        PressedColor: =Label5_27.Color
+        PressedFill: =Label5_27.Fill
+        Size: =40
+        Text: ="Ideation"
+        Width: =449
+        X: =212
+        Y: =328
+        ZIndex: =3
+
+    Button3 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button3.Fill, -15%)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =1
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+        DisabledColor: =RGBA(186, 186, 186, 1)
+        DisabledFill: =RGBA(119, 119, 119, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        Fill: =RGBA(221, 79, 14, 1)
+        FocusedBorderColor: =Button3.BorderColor
+        Font: ="Segoe UI"
+        FontWeight: =FontWeight.Normal
+        Height: =56
+        HoverBorderColor: =ColorFade(Button3.BorderColor, 20%)
+        HoverColor: =Button3.Color
+        HoverFill: =ColorFade(Button3.Fill, 30%)
+        OnSelect: |-
+            =If(
+                CountRows(Users)=4,
+                    "",
+                    Collect(Users,{ID: 1, Name: "Carol Curtis", Email: "user1@contoso.com", Password: "teste123",Group:"User"},
+                    {ID: 2, Name: "Camron Willis", Email: "user2@contoso.com", Password: "teste123",Group:"User"},
+                    {ID: 3, Name: "Teagan Connell", Email: "admin@contoso.com", Password: "teste123",Group:"Administrator"},
+                    {ID: 4, Name: "Kelsey Grenville", Email: "user4@contoso.com", Password: "teste123",Group:"User"}));
+            If(
+                CountRows(Ideas)>= 1,
+                    "",
+                    ClearCollect(Ideas,{ID: 1, Title: "Suggestion Box",'Short Description':"Suggestion box to share ideas",Description:"We should make a 'box' or something else which provided a way for us to share ideas or suggestions.",SubmitDate: DateValue("5/16/2015"), 'Owner ID': 2, Status: "Approved", Likes: 10, IsNew: 0},
+                    {ID: 2, Title: "Create our own business company football team.",'Short Description':"Let's create our own football team.",Description:"We should make a football team to represent the business company.",SubmitDate: DateValue("5/17/2015"), 'Owner ID': 2, Status: "Implemented", Likes: 30, IsNew: 0},
+                    {ID: 3, Title: "Go SkyDiving",'Short Description':"Let's take a day and go skydiving.",Description:"It would be awesome to take a day and go SkyDiving with the company.",SubmitDate: DateValue("5/17/2015"), 'Owner ID': 3, Status: "Accepted", Likes: 1, IsNew: 0},
+                    {ID: 4, Title: "Picnic",'Short Description':"Having a picnic with company and family members.",Description:"A picninc where we can be with our colleagues, and with our love ones!",SubmitDate: DateValue("5/18/2015"), 'Owner ID': 3, Status: "None", Likes: 0, IsNew: 1}));
+            If(
+                CountRows(Comments) >= 1,
+                    "",
+                    ClearCollect(Comments, {ID: 1, Text: "What a great idea!", 'Submission Date': DateValue("5/16/2015"), Owner: 3, Likes: 0, Idea: 1}, {ID: 2, Text: "Awesome idea!", 'Submission Date': DateValue("5/17/2015"), Owner: 3, Likes: 0, Idea: 2}));
+            If(CountRows(UserCommentLikes) >= 1,
+                "",
+                Collect(UserCommentLikes, {ID: "4_3", Like: 1}));
+            If(CountRows(UserIdeaLikes) >= 1,
+                "",
+                Collect(UserIdeaLikes, {ID: "3_1", Like: 1}));
+            UpdateContext({_userNormal:"user2@contoso.com"});
+            ClearCollect(UserLoged,Filter(Users, Email = _userNormal));
+            If(CountRows(UserLoged) = 1, Navigate(Dashboard,ScreenTransition.Fade));
+            UpdateContext({_addNewInputText:"-"});
+            UpdateContext({_addNewInputText:""})
+        PressedBorderColor: =ColorFade(Button3.BorderColor, -20%)
+        PressedColor: =Button3.Color
+        PressedFill: =ColorFade(Button3.Fill, -30%)
+        Size: =14
+        Text: ="Login as User"
+        Width: =449
+        X: =883
+        Y: =315
+        ZIndex: =4
+
+    varinputBoxVisible As label:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        Color: =RGBA(0, 0, 0, 1)
+        DisabledColor: =RGBA(186, 186, 186, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        FocusedBorderColor: =varinputBoxVisible.BorderColor
+        Font: ="Segoe UI"
+        HoverBorderColor: =varinputBoxVisible.BorderColor
+        HoverColor: =varinputBoxVisible.Color
+        HoverFill: =varinputBoxVisible.Fill
+        maximumHeight: =768
+        OnSelect: |-
+            ={_varInputBoxVisible: false}
+        PressedBorderColor: =varinputBoxVisible.BorderColor
+        PressedColor: =varinputBoxVisible.Color
+        PressedFill: =varinputBoxVisible.Fill
+        Size: =11
+        Text: =""
+        VerticalAlign: =VerticalAlign.Top
+        X: =40
+        Y: =40
+        ZIndex: =5
+
+    Button3_1 As button:
+        AutoDisableOnSelect: =false
+        BorderColor: =ColorFade(Button3_1.Fill, -15%)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =1
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledBorderColor: =RGBA(56, 56, 56, 1)
+        DisabledColor: =RGBA(186, 186, 186, 1)
+        DisabledFill: =RGBA(119, 119, 119, 1)
+        DisplayMode: =If(false,DisplayMode.Disabled,DisplayMode.Edit)
+        Fill: =RGBA(221, 79, 14, 1)
+        FocusedBorderColor: =Button3_1.BorderColor
+        Font: ="Segoe UI"
+        FontWeight: =FontWeight.Normal
+        Height: =56
+        HoverBorderColor: =ColorFade(Button3_1.BorderColor, 20%)
+        HoverColor: =Button3_1.Color
+        HoverFill: =ColorFade(Button3_1.Fill, 30%)
+        OnSelect: |-
+            =If(CountRows(Users)=4,
+                "",
+                Collect(Users,{ID: 1, Name: "Carol Curtis", Email: "user1@contoso.com", Password: "teste123",Group:"User"},{ID: 2, Name: "Camron Willis", Email: "user2@contoso.com", Password: "teste123",Group:"User"},{ID: 3, Name: "Teagan Connell", Email: "admin@contoso.com", Password: "teste123",Group:"Administrator"},{ID: 4, Name: "Kelsey Grenville", Email: "user4@contoso.com", Password: "teste123",Group:"User"}));
+            
+            If(CountRows(Ideas)>= 1,
+                "",
+                ClearCollect(Ideas,{ID: 1, Title: "Suggestion Box",'Short Description':"Suggestion box to share ideas",Description:"We should make a 'box' or something else which provided a way for us to share ideas or suggestions.",SubmitDate: DateValue("5/16/2015"), 'Owner ID': 2, Status: "Approved", Likes: 10, IsNew: 0},{ID: 2, Title: "Create our own business company football team.",'Short Description':"Let's create our own football team.",Description:"We should make a football team to represent the business company.",SubmitDate: DateValue("5/17/2015"), 'Owner ID': 2, Status: "Implemented", Likes: 30, IsNew: 0},{ID: 3, Title: "Go SkyDiving",'Short Description':"Let's take a day and go skydiving.",Description:"It would be awesome to take a day and go SkyDiving with the company.",SubmitDate: DateValue("5/17/2015"), 'Owner ID': 3, Status: "Accepted", Likes: 1, IsNew: 0},{ID: 4, Title: "Picnic",'Short Description':"Having a picnic with company and family members.",Description:"A picninc where we can be with our colleagues, and with our love ones!",SubmitDate: DateValue("5/18/2015"), 'Owner ID': 3, Status: "None", Likes: 0, IsNew: 1}));
+                
+            If(CountRows(Comments) >= 1, 
+                "",
+                ClearCollect(Comments, {ID: 1, Text: "What a great idea!", 'Submission Date': DateValue("5/16/2015"), Owner: 3, Likes: 0, Idea: 1}, {ID: 2, Text: "Awesome idea!", 'Submission Date': DateValue("5/17/2015"), Owner: 3, Likes: 0, Idea: 2}));
+            
+            If(CountRows(UserCommentLikes) >= 1, 
+                "", 
+                Collect(UserCommentLikes, {ID: "4_3", Like: 1}));
+            
+            If(CountRows(UserIdeaLikes) >= 1, 
+                "", 
+                Collect(UserIdeaLikes, {ID: "3_1", Like: 1}));
+                
+            UpdateContext({_userAdmin:"admin@contoso.com"});
+            ClearCollect(UserLoged,Filter(Users, Email = _userAdmin)); 
+            If(CountRows(UserLoged) = 1, Navigate(Dashboard,ScreenTransition.Fade)); 
+            
+            UpdateContext({_addNewInputText:"-"}); UpdateContext({_addNewInputText:""})
+        PressedBorderColor: =ColorFade(Button3_1.BorderColor, -20%)
+        PressedColor: =Button3_1.Color
+        PressedFill: =ColorFade(Button3_1.Fill, -30%)
+        Size: =14
+        Text: ="Login as Admin"
+        Width: =449
+        X: =883
+        Y: =398
+        ZIndex: =11
+
